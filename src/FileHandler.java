@@ -15,7 +15,6 @@ public class FileHandler {
 
     }
 
-
     public static String readLineAt(String fileName, int startPoint) {
         // grab the line from position "start" in the file
         try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
@@ -27,7 +26,6 @@ public class FileHandler {
         }
         return null;
     }
-
 
     public static void writeLineAt(String fileName, String data, int start) {
         // overwrite a line from position "start" in the file

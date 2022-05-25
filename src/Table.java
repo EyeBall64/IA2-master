@@ -2,11 +2,15 @@ public class Table {
     private String [][] endings;
     private int[][] score;
     private FileNouns noun;
+    private DataBase noun2;
 
     public Table(){
         noun = new FileNouns();
         endings = new String[7][3];
         score = new int[6][2];
+
+        noun2 = new DataBase("\\bex-file-01\\studenthome$\\16\\16Hurley_J\\computer science\\LatinNouns", 10);
+
         for(int x=0;x<7;x++){
             for(int y=0;y<3;y++){
                 endings[x][y] = (noun.getNouns(x,y));

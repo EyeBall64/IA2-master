@@ -61,7 +61,6 @@ public class DataBase {
             getRecord(counter);
         }
 
-
         // search for a record matching data
         // return true if found
         return false;
