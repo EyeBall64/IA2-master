@@ -3,11 +3,12 @@ public class DataBase {
     private String filename;
     private int rowWidth;
     private int recordCount;
+    private int totalColNumber;
 
     public DataBase(String filename, int rowWidth) {
         this.filename = filename;
         this.rowWidth = rowWidth;
-        recordCount = getRecordCount();
+        //recordCount = getRecordCount();
     }
 
     public void appendRecord(String data) {
@@ -38,21 +39,27 @@ public class DataBase {
     public void deleteRecord(int rowNumber) {
     }
 
-    public String getRecord(int rowNumber) {
-        return FileHandler.readLineAt(filename, rowNumber * (rowWidth+1));
+    public String getRecord(int rowNumber, int colNumber) {
+        //System.out.println("GET RECORD!!!");
+        return "a"; //FileHandler.readLineAt(filename,rowNumber*totalColNumber+colNumber );
     }
 
     public int getRecordCount() {
         int count = 0;
-        String record = getRecord(count);
+        int countCol = 0;
+        String record = getRecord(count,countCol );
         while (record != null){
-            count++;
-            record = getRecord(count);
+            countCol++;
+            record = getRecord(count,countCol);
+            if (countCol >totalColNumber){
+                countCol = 0;
+                count++;
+            }
         }
-        return count;
+        return count*(countCol+1);
         // return FileHandler.countLines(filename);
     }
-
+/*
     public boolean findRecord(String SearchData) {
         String CurrentData = getRecord(0);
         int counter = 0;
@@ -65,4 +72,6 @@ public class DataBase {
         // return true if found
         return false;
     }
+
+ */
 }

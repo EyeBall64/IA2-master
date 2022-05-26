@@ -4,7 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
         String direction;
+
         Table table = new Table();
+        System.out.println("ghd");
         Test test = new Test();
         for(int i = 0;i< 7;i++){
             for(int j = 0;j<3;j++){
