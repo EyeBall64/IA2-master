@@ -10,11 +10,11 @@ public class Table {
         score = new int[6][2];
         System.out.println("vars");
 
-        noun2 = new DataBase("\\\\bex-file-01\\studenthome$\\16\\16Hurley_J\\computer science\\LatinNouns.txt", 10);
+        noun2 = new DataBase("LatinNouns.txt", 10);
         System.out.println("before");
         for (int x = 0; x < 7; x++) {
             for (int y = 0; y < 3; y++) {
-                endings[x][y] = (noun2.getRecord(x+1,y+1));
+                endings[x][y] = (noun2.getRecord(x,y));
                 System.out.println("nouns");
             }
         }

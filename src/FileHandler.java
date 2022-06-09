@@ -17,10 +17,9 @@ public class FileHandler {
 
     public static String readLineAt(String fileName, int startPoint) {
         // grab the line from position "start" in the file
-       // System.out.println("file handler");
+       //leave
         try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
             rf.seek(startPoint);
-            //System.out.println("startpoint");
             return rf.readLine();
         }
         catch (IOException e) {

@@ -8,6 +8,7 @@ public class DataBase {
     public DataBase(String filename, int rowWidth) {
         this.filename = filename;
         this.rowWidth = rowWidth;
+        totalColNumber =3;
         //recordCount = getRecordCount();
     }
 
@@ -20,7 +21,6 @@ public class DataBase {
         if (data.length() != rowWidth){
             if (data.length() > rowWidth){
                 System.out.println("Tried to write " + data + " to field width of " + rowWidth);
-
             }
             while (data.length() < rowWidth){
                 data = data + " ";
@@ -40,8 +40,10 @@ public class DataBase {
     }
 
     public String getRecord(int rowNumber, int colNumber) {
-        //System.out.println("GET RECORD!!!");
-        return "a"; //FileHandler.readLineAt(filename,rowNumber*totalColNumber+colNumber );
+        if(rowNumber == 0){
+            return FileHandler.readLineAt(filename,rowNumber * rowWidth);
+        } else
+        return FileHandler.readLineAt(filename,(rowNumber+totalColNumber)*colNumber + rowNumber*2);
     }
 
     public int getRecordCount() {
